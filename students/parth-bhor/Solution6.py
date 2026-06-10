@@ -28,7 +28,7 @@ while True:
     guess = int(input("Guess a number between 1 and 20: "))
     if guess == num:
         print("Right")
-    
+        break  # FIX(faculty): added break so the loop stops on a correct guess (was an infinite loop)
     else:
         print("Wrong")
 
@@ -37,8 +37,8 @@ while True:
 num = 10 
 while True:
     guess = int(input("Guess a number between 1 and 20: "))
-if guess == num:
-    print("Right")
-    break
-else:
-    print("Wrong")
+    if guess == num:  # FIX(faculty): indented this if/else into the while loop (was outside it -> infinite loop with unreachable checks)
+        print("Right")
+        break
+    else:
+        print("Wrong")
